@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>New Level</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="1" column="0">
+     <widget class="LevelEditorWindow" name="widget" native="true"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionSave"/>
+   </widget>
+   <widget class="QMenu" name="menuAdd">
+    <property name="title">
+     <string>Add</string>
+    </property>
+    <addaction name="actionWall"/>
+    <addaction name="actionKill_Plane"/>
+    <addaction name="actionEnemy"/>
+    <addaction name="actionSprite"/>
+    <addaction name="actionMoving_Platform"/>
+    <addaction name="actionNo_Rotate_Zone"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionReset_Pan"/>
+    <addaction name="actionReset_Zoom"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuAdd"/>
+   <addaction name="menuView"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dockWidget_2">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QListWidget" name="listWidget">
+       <property name="resizeMode">
+        <enum>QListView::Fixed</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>240</width>
+          <height>591</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_endposy">
+           <property name="text">
+            <string>End Pos Y</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_posy">
+           <property name="text">
+            <string>Pos Y</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_height">
+           <property name="text">
+            <string>Height</string>
+           </property>
+          </widget>
+         </item>
+         <item row="22" column="1">
+          <widget class="QPushButton" name="pushButton_delete">
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_endposx">
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_attackSpeed">
+           <property name="text">
+            <string>Attack Speed</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_pauseTime">
+           <property name="minimum">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_attackRadius">
+           <property name="minimum">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>5.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="0">
+          <widget class="QLabel" name="label_spriteHeight">
+           <property name="text">
+            <string>Sprite Height</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_pauseTime">
+           <property name="text">
+            <string>Pause Time</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_attackSpeed">
+           <property name="minimum">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1">
+          <widget class="QComboBox" name="comboBox_enyType">
+           <item>
+            <property name="text">
+             <string>Still</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Moving</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Swooping</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Rotating</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Shooting</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Boss</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_posx">
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_width">
+           <property name="text">
+            <string>Width</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_endposy">
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_height">
+           <property name="minimum">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>5.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="18" column="1">
+          <widget class="QCheckBox" name="checkBox_sidwaysExit">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="0">
+          <widget class="QLabel" name="label_spriteY">
+           <property name="text">
+            <string>Sprite Y</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_posx">
+           <property name="text">
+            <string>Pos X</string>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="1">
+          <widget class="QCheckBox" name="checkBox_spriteFlipY">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_headDir">
+           <property name="text">
+            <string>Head Direction</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_speed">
+           <property name="text">
+            <string>Speed</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_speed">
+           <property name="minimum">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="21" column="1">
+          <widget class="QCheckBox" name="checkBox_spriteRotate">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_attackRadius">
+           <property name="text">
+            <string>Attack Radius</string>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_spriteHeight">
+           <property name="decimals">
+            <number>6</number>
+           </property>
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_endposx">
+           <property name="text">
+            <string>End Pos X</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_spriteWidth">
+           <property name="text">
+            <string>Sprite Width</string>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_spriteX">
+           <property name="decimals">
+            <number>6</number>
+           </property>
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_width">
+           <property name="minimum">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>5.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="0">
+          <widget class="QLabel" name="label_spriteX">
+           <property name="text">
+            <string>Sprite X</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="0">
+          <widget class="QLabel" name="label_enyType">
+           <property name="text">
+            <string>Enemy Type</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_posy">
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_spriteWidth">
+           <property name="decimals">
+            <number>6</number>
+           </property>
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_spriteY">
+           <property name="decimals">
+            <number>6</number>
+           </property>
+           <property name="minimum">
+            <double>-1.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="18" column="0">
+          <widget class="QLabel" name="label_sidewaysExit">
+           <property name="text">
+            <string>Sideways Exit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="QComboBox" name="comboBox_headDir">
+           <item>
+            <property name="text">
+             <string>None</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>North</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>West</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>South</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>East</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="19" column="1">
+          <widget class="QCheckBox" name="checkBox_spriteFlipX">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="23" column="1">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="19" column="0">
+          <widget class="QLabel" name="label_spriteFlipX">
+           <property name="text">
+            <string>Flip Sprite X</string>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="0">
+          <widget class="QLabel" name="label_spriteFlipY">
+           <property name="text">
+            <string>Flip Sprite Y</string>
+           </property>
+          </widget>
+         </item>
+         <item row="21" column="0">
+          <widget class="QLabel" name="label_spriteRotate">
+           <property name="text">
+            <string>Rotate Sprite</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionWall">
+   <property name="text">
+    <string>Wall</string>
+   </property>
+  </action>
+  <action name="actionEnemy">
+   <property name="text">
+    <string>Enemy</string>
+   </property>
+  </action>
+  <action name="actionMoving_Platform">
+   <property name="text">
+    <string>Moving Platform</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionKill_Plane">
+   <property name="text">
+    <string>Kill Plane</string>
+   </property>
+  </action>
+  <action name="actionNo_Rotate_Zone">
+   <property name="text">
+    <string>No Rotate Zone</string>
+   </property>
+  </action>
+  <action name="actionSprite">
+   <property name="text">
+    <string>Sprite</string>
+   </property>
+  </action>
+  <action name="actionReset_Pan">
+   <property name="text">
+    <string>Reset Pan</string>
+   </property>
+  </action>
+  <action name="actionReset_Zoom">
+   <property name="text">
+    <string>Reset Zoom</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LevelEditorWindow</class>
+   <extends>QWidget</extends>
+   <header>leveleditorwindow.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
